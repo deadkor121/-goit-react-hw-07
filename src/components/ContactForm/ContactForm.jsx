@@ -32,6 +32,7 @@ const ContactForm = () => {
     number: Yup.string()
       .min(3, 'Too Short!')
       .max(50, 'Too Long!')
+      .matches(/^[0-9]+$/, 'Must be only digits')
       .required('Required'),
   });
 
@@ -63,7 +64,6 @@ const ContactForm = () => {
               type="tel"
               name="number"
               placeholder="111-22-33"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
             />
             <ErrorMessage name="number" component="div" />
           </div>
